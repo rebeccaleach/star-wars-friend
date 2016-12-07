@@ -1,0 +1,23 @@
+/* Main Styles */
+
+body {
+	background-color: #aaa;
+	color: #222;
+	font-family: 'Futura', sans-serif;
+}
+
+#container {
+	margin: 0 auto;
+	margin-top: 2em;
+	padding: 1em 2em;
+	width: 70%;
+	background-color: #eee;
+}
+
+header {
+	margin: 2em 0 2em;
+}
+
+footer {
+	margin: 2em 0;
+}
