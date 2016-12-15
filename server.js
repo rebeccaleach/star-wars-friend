@@ -26,7 +26,8 @@ var PORT = 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
-// app.use(bodyParser.json({type: 'application/vnd.api+json'})); // probably don't need this
+// app.use(bodyParser.json({type: 'application/vnd.api+json'})); // probably don't need this (according to brian)
+// - the below line of code sets a public directory of files that are accessible on the front end. don't put anything in that folder that you don't want an end user to be able to access (like dynamic JS files or database schema that assholes could use to fuck up your website)
 app.use(express.static('app/public'));
 
 
@@ -37,6 +38,7 @@ app.use(express.static('app/public'));
 // why did the hot restaurant activity not use the "var apiRoutes =" part of this require (below)?
 // why is the server saying .get is undefined?
 // - you have to call this function AFTER you define app (i.e., var app = express(); ). the below version defines apiRoutes and calles the express function (i think). alternately, you just just define it (var apiRoutes = require('...'); ) and then call it later ( apiRoutes(app); )
+var htmlRoutes = require('./app/routing/html-routes.js')(app);
 var apiRoutes = require('./app/routing/api-routes.js')(app);
 
 
